@@ -1,0 +1,1 @@
+<template>ProjectDetail.vue</template>
