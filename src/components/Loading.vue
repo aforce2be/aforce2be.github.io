@@ -8,7 +8,7 @@
       <span class="opacity-0 txt02">structure </span>
       <span class="opacity-0 txt03">into </span>
       <span class="opacity-0 txt04">experience</span> -->
-            <span class="block opacity-0 txt05 text-4xl text-white text-center mt-6"></span>
+            <span class="block opacity-0 txt05 text-4xl text-white text-center mt-6 font-medium"></span>
         </strong>
     </div>
 </template>
