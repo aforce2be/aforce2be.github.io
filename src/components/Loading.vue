@@ -51,10 +51,10 @@ onMounted(() => {
 
     setTimeout(() => {
         hide.value = true
-    }, 6000)
+    }, 4000)
     setTimeout(() => {
         show.value = false
-    }, 7000)
+    }, 5000)
 })
 </script>
 

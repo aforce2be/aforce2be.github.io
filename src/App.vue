@@ -1,12 +1,29 @@
 <template>
-  <loading></loading>
-  <Header />
-  <router-view />
+  <div>
+    <!-- 로딩 중일 때 -->
+    <Loading v-if="isLoading" />
+
+    <!-- 로딩이 끝났을 때 -->
+    <div v-else>
+      <Header />
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <script setup>
-import Loading from "./components/Loading.vue"
+import { ref, onMounted } from "vue";
+import Loading from "./components/Loading.vue";
 import Header from "./components/Header.vue";
+
+const isLoading = ref(true);
+
+onMounted(() => {
+  // 예시: 2초 후 로딩 종료
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 5000);
+});
 </script>
 
 <style>
