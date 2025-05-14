@@ -6,9 +6,6 @@
     <!-- 로딩이 끝났을 때 -->
     <div v-else>
       <Header />
-      <main class="pt-16">
-        <router-view />
-      </main>
     </div>
   </div>
 </template>
