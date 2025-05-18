@@ -5,7 +5,7 @@
 
     <!-- 로딩이 끝났을 때 -->
     <div v-else>
-      <Header />
+      <Home />
     </div>
   </div>
 </template>
@@ -13,12 +13,11 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Loading from "./components/Loading.vue";
-import Header from "./components/Header.vue";
+import Home from "./pages/Home.vue";
 
 const isLoading = ref(true);
 
 onMounted(() => {
-  // 예시: 2초 후 로딩 종료
   setTimeout(() => {
     isLoading.value = false;
   }, 5000);

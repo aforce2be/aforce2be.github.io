@@ -9,7 +9,7 @@
       :class="{ 'opacity-0 scale-95': hide, 'opacity-100 scale-100': !hide }"
     >
       <span
-        class="block opacity-0 txt05 text-2xl md:text-4xl text-white text-center mt-6 font-medium"
+        class="block opacity-0 txt05 text-5xl font-semibold md:text-4xl text-white text-center mt-6 font-medium"
       ></span>
     </strong>
   </div>
@@ -23,7 +23,7 @@ const hide = ref(false);
 
 onMounted(() => {
   const txt05 = document.querySelector(".txt05");
-  const text = "Every pixel has meaning...";
+  const text = "EVERY PIXEL HAS MEANING...";
   let i = 0;
 
   setTimeout(() => {
