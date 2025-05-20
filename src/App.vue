@@ -5,6 +5,7 @@
 
     <!-- 로딩이 끝났을 때 -->
     <div v-else>
+      <MouseEffects />
       <Home />
     </div>
   </div>
@@ -13,6 +14,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Loading from "./components/Loading.vue";
+import MouseEffects from "./components/MouseEffects.vue";
 import Home from "./pages/Home.vue";
 
 const isLoading = ref(true);
