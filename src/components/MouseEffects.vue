@@ -51,7 +51,7 @@ onMounted(() => {
   left: 0;
   width: 24px;
   height: 24px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(43, 228, 99, 0.5);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
