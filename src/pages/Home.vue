@@ -57,6 +57,17 @@ onMounted(() => {
 
   sections.forEach((section) => observer.observe(section));
 
+  setTimeout(() => {
+    const topSection = Array.from(sections).find((el) => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    });
+
+    if (topSection) {
+      activeSection.value = topSection.id;
+    }
+  }, 100);
+
   const handleScroll = () => {
     isScrolled.value = window.scrollY > 10;
   };
