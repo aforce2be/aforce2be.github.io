@@ -1,10 +1,10 @@
 <template>
   <div>
     <!-- 로딩 중일 때 -->
-    <Loading v-if="isLoading" />
+    <!-- <Loading v-if="isLoading" /> -->
 
     <!-- 로딩이 끝났을 때 -->
-    <div v-else>
+    <div>
       <MouseEffects />
       <Home />
     </div>
@@ -20,9 +20,9 @@ import Home from "./pages/Home.vue";
 const isLoading = ref(true);
 
 onMounted(() => {
-  setTimeout(() => {
-    isLoading.value = false;
-  }, 5000);
+  // setTimeout(() => {
+  //   isLoading.value = false;
+  // }, 5000);
 });
 </script>
 
