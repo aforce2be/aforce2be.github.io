@@ -3,14 +3,16 @@
     id="about"
     class="min-h-screen scroll-mt-14 flex flex-col justify-between pt-12 pb-12 transition-opacity duration-700"
     :class="{ 'opacity-100': active, 'opacity-50': !active }"
+    :style="`background-image: url(${bgImage})`"
   >
     <!-- h3: 왼쪽 슬라이드 인 -->
     <h2
-      class="text-7xl font-extrabold transition-all duration-700 ease-in-out px-20"
+      class="text-8xl font-extrabold transition-all duration-700 ease-in-out px-20"
       :class="
         isAnimated ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
       "
     >
+      <span class="block mb-2 text-xl font-medium">01. ABOUT</span>
       TURNING STRUCTURE<br class="hidden md:inline" />INTO EXPERIENCE
     </h2>
 
@@ -52,7 +54,7 @@
           <span
             v-for="n in 20"
             :key="n"
-            class="text-7xl font-bold whitespace-nowrap"
+            class="text-7xl font-extrabold whitespace-nowrap"
           >
             EVERY PIXEL HAS MEANING.
           </span>
@@ -73,6 +75,7 @@
 
 <script setup>
 import { ref, watch } from "vue";
+import bgImage from "../assets/bg-01.jpg";
 
 const { active } = defineProps({ active: Boolean });
 
