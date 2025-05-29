@@ -1,9 +1,8 @@
 <template>
   <section
     id="about"
-    class="min-h-screen scroll-mt-14 flex flex-col justify-between pt-12 pb-12 transition-opacity duration-700"
+    class="min-h-screen scroll-mt-14 flex flex-col justify-between pt-12 pb-12 transition-opacity duration-700 relative"
     :class="{ 'opacity-100': active, 'opacity-50': !active }"
-    :style="`background-image: url(${bgImage})`"
   >
     <!-- h3: 왼쪽 슬라이드 인 -->
     <h2
@@ -75,7 +74,6 @@
 
 <script setup>
 import { ref, watch } from "vue";
-import bgImage from "../assets/bg-01.jpg";
 
 const { active } = defineProps({ active: Boolean });
 
