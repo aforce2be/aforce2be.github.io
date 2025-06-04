@@ -2,7 +2,7 @@
   <main>
     <div
       :style="`
-    background: url(${bgImage}) no-repeat center / cover;
+    background: url(${bgImage}) no-repeat center center / cover;
     opacity: ${bgOpacity};
     transition: opacity 0.1s linear;
     position: fixed;
@@ -78,8 +78,11 @@ onMounted(() => {
       const start = windowHeight;
       const end = 0;
 
-      const progress =
+      let progress =
         1 - Math.min(Math.max((rect.top - end) / (start - end), 0), 1);
+
+      // opacity 증가 가속
+      progress = Math.pow(progress, 0.8); // 더 빠르게 증가하도록 (0.5 < 1)
       bgOpacity.value = progress.toFixed(2);
     }
   };
