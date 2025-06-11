@@ -9,7 +9,7 @@
     </h2>
     <ul class="list text-white">
       <li
-        class="project-item px-20 transition-all duration-300 ease-in-out flex justify-between items-center"
+        class="project-item px-20 transition-all duration-300 ease-in-out flex justify-between items-center group relative"
       >
         <div>
           <h3 class="transition-transform duration-300 text-4xl font-semibold">
@@ -43,6 +43,11 @@
             />
           </svg>
         </span>
+        <img
+          src="../assets/mockup-01.png"
+          alt="메가존 목업 이미지"
+          class="absolute top-1/2 right-1/2 w-[250px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        />
       </li>
     </ul>
   </section>
