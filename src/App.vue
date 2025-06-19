@@ -6,7 +6,7 @@
     <!-- 로딩이 끝났을 때 -->
     <div>
       <MouseEffects />
-      <Home />
+      <router-view />
     </div>
   </div>
 </template>
