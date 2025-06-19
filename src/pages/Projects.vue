@@ -31,10 +31,10 @@
           </p>
         </div>
         <router-link
-          :to="{ name: 'ProjectDetail' }"
+          :to="{ name: 'ProjectDetail', params: { id: 2 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
-          GO TO SITE
+          VIEW DETAILS
           <!-- 화살표 아이콘 (Heroicons 기준) -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,10 +80,11 @@
             <span>#GitLab</span>
           </p>
         </div>
-        <span
+        <router-link
+          :to="{ name: 'ProjectDetail', params: { id: 3 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
-          GO TO SITE
+          VIEW DETAILS
           <!-- 화살표 아이콘 (Heroicons 기준) -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +100,7 @@
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </span>
+        </router-link>
         <img
           src="../assets/mockup-02.png"
           alt="메가존 목업 이미지"
@@ -128,10 +129,11 @@
             <span>#GitLab</span>
           </p>
         </div>
-        <span
+        <router-link
+          :to="{ name: 'ProjectDetail', params: { id: 4 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
-          GO TO SITE
+          VIEW DETAILS
           <!-- 화살표 아이콘 (Heroicons 기준) -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +149,7 @@
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </span>
+        </router-link>
         <img
           src="../assets/mockup-03.png"
           alt="메가존 목업 이미지"
@@ -176,10 +178,11 @@
             <span>#웹접근성</span>
           </p>
         </div>
-        <span
+        <router-link
+          :to="{ name: 'ProjectDetail', params: { id: 5 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
-          GO TO SITE
+          VIEW DETAILS
           <!-- 화살표 아이콘 (Heroicons 기준) -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +198,7 @@
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </span>
+        </router-link>
         <img
           src="../assets/mockup-04.png"
           alt="메가존 목업 이미지"
@@ -224,10 +227,11 @@
             <span>#CSS3</span>
           </p>
         </div>
-        <span
+        <router-link
+          :to="{ name: 'ProjectDetail', params: { id: 6 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
-          GO TO SITE
+          VIEW DETAILS
           <!-- 화살표 아이콘 (Heroicons 기준) -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +247,7 @@
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </span>
+        </router-link>
       </li>
       <li
         class="project-item px-20 transition-all duration-300 ease-in-out flex justify-between items-center group relative"
@@ -264,10 +268,11 @@
             <span>#jQuery</span>
           </p>
         </div>
-        <span
+        <router-link
+          :to="{ name: 'ProjectDetail', params: { id: 7 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
-          GO TO SITE
+          VIEW DETAILS
           <!-- 화살표 아이콘 (Heroicons 기준) -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -283,7 +288,7 @@
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </span>
+        </router-link>
       </li>
     </ul>
   </section>
