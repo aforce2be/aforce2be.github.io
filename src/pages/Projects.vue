@@ -31,7 +31,7 @@
           </p>
         </div>
         <router-link
-          :to="{ name: 'ProjectDetail', params: { id: 2 } }"
+          :to="{ name: 'ProjectDetail', params: { id: 6 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
           VIEW DETAILS
@@ -81,7 +81,7 @@
           </p>
         </div>
         <router-link
-          :to="{ name: 'ProjectDetail', params: { id: 3 } }"
+          :to="{ name: 'ProjectDetail', params: { id: 5 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
           VIEW DETAILS
@@ -179,7 +179,7 @@
           </p>
         </div>
         <router-link
-          :to="{ name: 'ProjectDetail', params: { id: 5 } }"
+          :to="{ name: 'ProjectDetail', params: { id: 3 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
           VIEW DETAILS
@@ -228,7 +228,7 @@
           </p>
         </div>
         <router-link
-          :to="{ name: 'ProjectDetail', params: { id: 6 } }"
+          :to="{ name: 'ProjectDetail', params: { id: 2 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
           VIEW DETAILS
@@ -269,7 +269,7 @@
           </p>
         </div>
         <router-link
-          :to="{ name: 'ProjectDetail', params: { id: 7 } }"
+          :to="{ name: 'ProjectDetail', params: { id: 1 } }"
           class="flex items-center gap-2 group text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
         >
           VIEW DETAILS
