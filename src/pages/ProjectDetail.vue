@@ -72,6 +72,9 @@
             </li>
           </ul>
         </div>
+        <div class="w-[600px] mx-auto">
+          <PieChart :participation="project.participation" class="mt-8" />
+        </div>
       </section>
     </div>
   </div>
@@ -80,6 +83,7 @@
 <script setup>
 import { ref, computed, watch } from "vue";
 import { useRoute } from "vue-router";
+import PieChart from "../components/PieChart.vue";
 
 const route = useRoute();
 const id = computed(() => Number(route.params.id)); // 핵심 수정
@@ -112,21 +116,25 @@ const projects = {
     participation: [
       {
         title: "UI 퍼블리싱 및 반응형 웹 구현 (50%)",
+        percent: 50,
         content:
           "프로젝트 전체 UI 퍼블리싱을 담당하며 SCSS 및 Mui를 활용해 일관된 디자인 시스템을 구축. 반응형 UI 설계 및 최적화를 통해 다양한 디바이스에서 최상의 사용자 경험 제공.",
       },
       {
         title: "컴포넌트 개발 (20%)",
+        percent: 20,
         content:
           "React와 TypeScript로 재사용 가능한 UI 컴포넌트를 개발 및 유지보수. 코드 일관성과 확장성을 고려한 설계를 적용하여 개발 효율성을 향상.",
       },
       {
         title: "UI/UX 개선 및 최적화 (20%)",
+        percent: 20,
         content:
           "사용자 피드백을 분석하여 UI/UX 개선안을 도출하고 직관적인 사용자 경험을 제공하여 사용자 만족도 50% 향상에 기여.",
       },
       {
         title: "협업 및 프로젝트 지원 (10%)",
+        percent: 10,
         content:
           "프론트엔드 개발자 및 기획자와 협업하여 UI/UX 개선 사항을 도출하고 시스템 안정성 90% 이상 유지.",
       },
@@ -135,6 +143,4 @@ const projects = {
 };
 </script>
 
-<style scoped>
-/* 추가적인 커스터마이징은 여기에 작성 */
-</style>
+<style scoped></style>
