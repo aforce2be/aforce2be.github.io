@@ -4,7 +4,7 @@
     <div
       ref="cursorDot"
       class="cursor-dot"
-      :class="{ active: isHovering }"
+      :class="{ active: isHovering, detail: props.variant === 'detail' }"
     ></div>
   </div>
 </template>
@@ -20,12 +20,20 @@ let mouseY = 0;
 let currentX = 0;
 let currentY = 0;
 
+let onMouseMoveTrack; // 포인터 추적
+let onMouseMoveHover; // projects 내부 hover 감지
+
+const props = defineProps({
+  variant: { type: String, default: "default" },
+});
+
 onMounted(() => {
   // 마우스 이동 좌표 추적
-  window.addEventListener("mousemove", (e) => {
+  onMouseMoveTrack = (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-  });
+  };
+  window.addEventListener("mousemove", onMouseMoveTrack);
 
   // 애니메이션 반복
   const animate = () => {
@@ -40,28 +48,20 @@ onMounted(() => {
   };
   animate();
 
-  // projects 영역 감지
-  const projectsEl = document.getElementById("projects");
-  if (projectsEl) {
-    projectsEl.addEventListener("mouseenter", () => {
-      isHovering.value = true;
-    });
-    projectsEl.addEventListener("mouseleave", () => {
-      isHovering.value = false;
-    });
-  }
+  onMouseMoveHover = (e) => {
+    const inside = !!e.target.closest("#projects");
+    if (inside !== isHovering.value) {
+      isHovering.value = inside;
+    }
+  };
+  document.addEventListener("mousemove", onMouseMoveHover);
 });
 
 onUnmounted(() => {
-  const projectsEl = document.getElementById("projects");
-  if (projectsEl) {
-    projectsEl.removeEventListener("mouseenter", () => {
-      isHovering.value = true;
-    });
-    projectsEl.removeEventListener("mouseleave", () => {
-      isHovering.value = false;
-    });
-  }
+  if (onMouseMoveTrack)
+    window.removeEventListener("mousemove", onMouseMoveTrack);
+  if (onMouseMoveHover)
+    document.removeEventListener("mousemove", onMouseMoveHover);
 });
 </script>
 
@@ -89,5 +89,11 @@ onUnmounted(() => {
   width: 16px;
   height: 16px;
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.cursor-dot.detail {
+  width: 16px;
+  height: 16px;
+  background-color: rgba(0, 200, 255, 0.5);
 }
 </style>
