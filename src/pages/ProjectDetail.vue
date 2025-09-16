@@ -1,34 +1,60 @@
 <template>
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <div class="flex flex-col md:flex-row items-start gap-6">
-      <img
-        v-if="project.thumbnail"
-        :src="project.thumbnail"
-        alt="project thumbnail"
-        class="w-full md:w-1/2 rounded-2xl shadow-md object-cover"
-      />
-      <div class="flex-1 space-y-4">
-        <h1 class="text-3xl font-bold">{{ project.title }}</h1>
-        <p class="text-gray-600">{{ project.duration }}</p>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <!-- 헤더 영역: 모바일 단일 컬럼 → md부터 2열 -->
+    <div
+      class="flex flex-col md:grid md:grid-cols-5 md:gap-8 items-start gap-6"
+    >
+      <!-- 썸네일 -->
+      <div v-if="hasThumb" class="md:col-span-2 order-1 md:order-none w-full">
+        <img
+          v-if="project.thumbnail"
+          :src="project.thumbnail"
+          alt="project thumbnail"
+          class="w-full aspect-[4/3] md:aspect-[3/2] object-cover rounded-2xl shadow-md"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- 텍스트 메타 -->
+      <div
+        :class="[
+          'w-full space-y-4',
+          hasThumb ? 'md:col-span-3' : 'md:col-span-5',
+        ]"
+      >
+        <h1
+          class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
+        >
+          {{ project.title }}
+        </h1>
+
+        <p class="text-gray-600 text-sm sm:text-base">
+          {{ project.duration }}
+        </p>
+
+        <!-- 기술스택 칩 -->
         <div class="flex flex-wrap gap-2">
           <span
             v-for="(stack, index) in project.techStack"
             :key="index"
-            class="bg-gray-100 text-sm px-3 py-1 rounded-full"
+            class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs sm:text-sm text-gray-700"
           >
             {{ stack }}
           </span>
         </div>
+
+        <!-- 외부 링크: 모바일에서도 터치하기 쉽게 block 버튼화 -->
         <a
           v-if="project.url"
           :href="project.url"
           target="_blank"
-          class="flex items-center justify-center gap-2 text-base text-gray-600 hover:text-gray-300 transition-colors duration-200 cursor-pointer"
+          rel="noopener noreferrer"
+          class="inline-flex md:inline-flex items-center justify-center gap-2 mt-2 rounded-lg border border-gray-300/60 px-4 py-2 text-sm sm:text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200"
         >
           Go Site
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200"
+            class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -44,37 +70,53 @@
       </div>
     </div>
 
-    <div class="mt-8 space-y-6">
+    <!-- 본문 영역 -->
+    <div class="mt-10 md:mt-12 space-y-8">
+      <!-- 프로젝트 개요 -->
       <section>
-        <h2 class="text-xl font-semibold mb-2">프로젝트 개요</h2>
-        <p class="text-gray-700">{{ project.summary }}</p>
+        <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">
+          프로젝트 개요
+        </h2>
+        <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+          {{ project.summary }}
+        </p>
       </section>
 
+      <!-- 성과 -->
       <section>
-        <h2 class="text-xl font-semibold mb-2">성과</h2>
-        <ul class="list-disc list-inside text-gray-700">
+        <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">성과</h2>
+        <ul
+          class="list-disc list-inside text-gray-700 space-y-1 text-sm sm:text-base"
+        >
           <li v-for="(achievement, index) in project.achievements" :key="index">
             {{ achievement }}
           </li>
         </ul>
       </section>
 
+      <!-- 참여도 + 차트 -->
       <section>
-        <h2 class="text-xl font-semibold mb-2">참여도</h2>
+        <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-3">
+          참여도
+        </h2>
+
         <div
           v-for="(item, index) in project.participation"
           :key="index"
+          class="text-sm sm:text-base"
           :class="index > 0 ? 'mt-3' : ''"
         >
-          <p class="font-semibold text-gray-600">{{ item.title }}</p>
+          <p class="font-semibold text-gray-700">{{ item.title }}</p>
           <ul class="list-disc list-inside text-gray-700">
-            <li>
-              {{ item.content }}
-            </li>
+            <li>{{ item.content }}</li>
           </ul>
         </div>
-        <div class="w-[400px] mx-auto">
-          <PieChart :participation="project.participation" class="mt-8" />
+
+        <!-- 차트: 반응형 컨테이너 -->
+        <div
+          class="mx-auto mt-6 md:mt-8 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
+        >
+          <PieChart :participation="project.participation" />
         </div>
       </section>
     </div>
@@ -82,19 +124,17 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue";
+import { computed } from "vue";
 import { useRoute } from "vue-router";
 import PieChart from "../components/PieChart.vue";
-
-const route = useRoute();
-const id = computed(() => Number(route.params.id)); // 핵심 수정
-
-const project = computed(() => projects[id.value] || {});
 
 import thumbnailPms from "../assets/thmb-pms.png";
 import thumbnailWoowa from "../assets/thmb-woowa.png";
 import thumbnailAcademy from "../assets/thmb-academy.png";
 import thumbnailAmore from "../assets/thmb-amore.png";
+
+const route = useRoute();
+const id = computed(() => Number(route.params.id));
 
 const projects = {
   6: {
@@ -403,6 +443,32 @@ const projects = {
     ],
   },
 };
+
+// 안전 가드: id 없거나 잘못된 경우 빈 객체
+const project = computed(
+  () =>
+    projects[id.value] || {
+      title: "",
+      duration: "",
+      url: "",
+      thumbnail: "",
+      techStack: [],
+      summary: "",
+      achievements: [],
+      participation: [],
+    }
+);
+
+const hasThumb = computed(() => !!project.value.thumbnail);
 </script>
 
-<style scoped></style>
+<style scoped>
+/* 모션 민감 사용자 배려 (선택) */
+@media (prefers-reduced-motion: reduce) {
+  .transition-colors,
+  .transition-transform,
+  .transition-all {
+    transition: none !important;
+  }
+}
+</style>

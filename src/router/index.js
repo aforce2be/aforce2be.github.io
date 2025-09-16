@@ -22,6 +22,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+
+    if (to.name === 'ProjectDetail') {
+      return { top: 0, left: 0 };
+    }
+
+    return {};
+  }
 });
 
 export default router;

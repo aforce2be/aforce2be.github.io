@@ -1,25 +1,31 @@
 <template>
   <section
     id="contact"
-    class="min-h-screen scroll-mt-14 flex flex-col justify-between pt-12 pb-12 transition-opacity duration-700 relative bg-white"
-    :class="{ 'opacity-100': active, 'opacity-50': !active }"
+    class="min-h-screen scroll-mt-14 relative flex flex-col justify-between space-y-6 md:space-y-10 lg:space-y-12 pt-6 pb-8 md:pt-12 md:pb-12 transition-opacity duration-700 bg-white"
+    :class="{ 'opacity-100': active, 'opacity-60': !active }"
   >
-    <!-- H2: 왼쪽에서 슬라이드 인 -->
+    <!-- 헤딩: 왼쪽 → 오른쪽 슬라이드 인 -->
     <h2
-      class="text-5xl md:text-8xl font-extrabold transition-all duration-700 ease-in-out px-20"
+      class="font-extrabold transition-all duration-700 ease-in-out leading-tight px-4 sm:px-8 md:px-12 lg:px-20 text-4xl sm:text-5xl md:text-7xl lg:text-8xl"
       :class="
-        isAnimated ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+        isAnimated
+          ? 'translate-x-0 opacity-100'
+          : '-translate-x-6 sm:-translate-x-8 md:-translate-x-12 opacity-0'
       "
     >
-      <span class="block mb-2 text-xl font-medium text-right">03. CONTACT</span>
+      <span
+        class="block mb-2 sm:mb-3 text-base sm:text-lg md:text-xl font-medium text-right"
+      >
+        03. CONTACT
+      </span>
       COLLABORATION <br class="hidden md:inline" />AND GROWTH
       <br class="hidden md:inline" />
       THROUGH COMMUNICATION
     </h2>
 
-    <!-- 연락처 블록: 아래에서 위로 + 살짝 딜레이 -->
+    <!-- 연락처: 아래 → 위 슬라이드 인 (딜레이) -->
     <div
-      class="px-20 text-right text-lg transition-all duration-700 ease-in-out"
+      class="transition-all duration-700 ease-in-out px-4 sm:px-8 md:px-12 lg:px-20 text-right text-base sm:text-lg"
       :class="
         isAnimated ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
       "
@@ -52,44 +58,43 @@
       </a>
     </div>
 
-    <!-- 소개 문단: 오른쪽에서 슬라이드 인 + 더 긴 딜레이 -->
+    <!-- 소개: 오른쪽 → 왼쪽 슬라이드 인 (더 긴 딜레이) -->
     <p
-      class="text-base md:text-2xl text-gray-700 leading-relaxed text-left transition-all duration-700 ease-in-out px-20"
+      class="text-gray-700 leading-relaxed text-left transition-all duration-700 ease-in-out px-4 sm:px-8 md:px-12 lg:px-20 text-sm sm:text-base md:text-xl lg:text-2xl"
       :class="
-        isAnimated ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
+        isAnimated
+          ? 'translate-x-0 opacity-100'
+          : 'translate-x-6 sm:translate-x-8 md:translate-x-12 opacity-0'
       "
       :style="isAnimated ? 'transition-delay: 240ms' : ''"
     >
       지금까지 여러 프로젝트에서 웹 퍼블리싱을 맡으며 사용자 경험을 더 좋게
       만들고, 코드 효율성을 높이는 데 집중해왔습니다.
-      <br class="hidden md:inline" />앞으로도 끊임없이 배우고 도전하면서 더
-      완성도 높은 결과물을 만들어내고 싶습니다. 협업과 소통을 무엇보다 중요하게
-      생각하는 만큼, 함께하는 팀과 즐겁게 성장하며 가치 있는 성과를
-      만들어가겠습니다.
+      <br class="hidden md:inline" />
+      앞으로도 끊임없이 배우고 도전하면서 더 완성도 높은 결과물을 만들어내고
+      싶습니다. 협업과 소통을 무엇보다 중요하게 생각하는 만큼, 함께하는 팀과
+      즐겁게 성장하며 가치 있는 성과를 만들어가겠습니다.
     </p>
   </section>
 </template>
 
 <script setup>
 import { ref, watch } from "vue";
-
 const { active } = defineProps({ active: Boolean });
 
-// 상태는 단순화: 배너 없음. isAnimated만 제어
+// About와 동일한 트리거 방식: 한 프레임 뒤 켜서 트랜지션 보장
 const isAnimated = ref(false);
 
 watch(
   () => active,
   (on) => {
     if (on) {
-      // 활성화 시 순차 등장 트리거
-      // (About처럼 한 프레임 뒤에 켜서 트랜지션 확실히 작동)
       requestAnimationFrame(() => {
         isAnimated.value = true;
       });
     } else {
-      // 전환 구간에서 빈 화면 방지: 바로 끄지 않고 유지
-      // 필요 시 완전히 화면 밖으로 나갔을 때만 false로 리셋하는 로직을 추가 가능
+      // 전환 구간에서 빈 화면 방지: 즉시 끄지 않음
+      // 필요 시, 섹션이 완전히 화면 밖으로 나갔을 때만 false로 리셋하는 로직 추가 가능
       // isAnimated.value = false;
     }
   },
