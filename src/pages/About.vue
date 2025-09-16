@@ -2,27 +2,35 @@
   <section
     ref="sectionEl"
     id="about"
-    class="min-h-screen scroll-mt-14 flex flex-col justify-between pt-12 pb-12 transition-opacity duration-700 relative"
-    :class="{ 'opacity-100': active, 'opacity-50': !active }"
+    class="min-h-screen scroll-mt-14 flex flex-col justify-between pt-10 md:pt-12 pb-10 md:pb-12 transition-opacity duration-700 relative"
+    :class="{ 'opacity-100': active, 'opacity-60': !active }"
   >
     <!-- h3: 왼쪽 슬라이드 인 -->
     <h2
       :key="'h2-' + animKey"
-      class="text-8xl font-extrabold transition-all duration-700 ease-in-out px-20"
+      class="px-6 md:px-12 lg:px-20 font-extrabold transition-all duration-700 ease-in-out text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight"
       :class="
-        isAnimated ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+        isAnimated
+          ? 'translate-x-0 opacity-100'
+          : '-translate-x-6 sm:-translate-x-8 md:-translate-x-12 opacity-0'
       "
     >
-      <span class="block mb-2 text-xl font-medium">01. ABOUT</span>
+      <span
+        class="block mb-2 sm:mb-3 text-base sm:text-lg md:text-xl font-medium"
+      >
+        01. ABOUT
+      </span>
       TURNING STRUCTURE<br class="hidden md:inline" />INTO EXPERIENCE
     </h2>
 
     <!-- p: 오른쪽 슬라이드 인 + delay -->
     <p
       :key="'p-' + animKey"
-      class="text-base md:text-2xl text-gray-700 leading-relaxed text-right transition-all duration-700 ease-in-out px-20"
+      class="px-6 md:px-12 lg:px-20 text-right transition-all duration-700 ease-in-out text-sm sm:text-base md:text-xl lg:text-2xl text-gray-700 leading-relaxed"
       :class="
-        isAnimated ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
+        isAnimated
+          ? 'translate-x-0 opacity-100'
+          : 'translate-x-6 sm:translate-x-8 md:translate-x-12 opacity-0'
       "
       :style="isAnimated ? 'transition-delay: 200ms' : ''"
     >
@@ -40,32 +48,36 @@
 
     <!-- 텍스트 배너 -->
     <div
-      class="relative overflow-hidden h-16 mt-12 pr-16 transition-opacity duration-700 ease-in-out"
+      class="relative overflow-hidden h-12 sm:h-14 md:h-16 mt-8 md:mt-12 pr-6 md:pr-16 transition-opacity duration-700 ease-in-out"
       :class="isBannerVisible ? 'opacity-100' : 'opacity-0'"
     >
       <div
         ref="track"
         :class="[
-          'flex absolute whitespace-nowrap gap-8',
+          // 바깥 트랙은 gap 제거(루프 이음매 빈칸 방지)
+          'flex absolute whitespace-nowrap',
           animateBanner ? 'animate-wave-loop' : 'initial-position',
         ]"
         @mouseenter="pauseAnimation"
         @mouseleave="resumeAnimation"
       >
-        <div class="flex gap-8">
+        <div class="flex items-center gap-6 sm:gap-8 shrink-0">
           <span
-            v-for="n in 20"
+            v-for="n in 16"
             :key="n"
-            class="text-7xl font-extrabold whitespace-nowrap"
+            class="whitespace-nowrap font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
           >
             EVERY PIXEL HAS MEANING.
           </span>
         </div>
-        <div class="flex gap-8">
+        <div
+          class="flex items-center gap-6 sm:gap-8 shrink-0"
+          aria-hidden="true"
+        >
           <span
-            v-for="n in 20"
+            v-for="n in 16"
             :key="'b' + n"
-            class="text-7xl font-extrabold whitespace-nowrap"
+            class="whitespace-nowrap font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
           >
             EVERY PIXEL HAS MEANING.
           </span>

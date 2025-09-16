@@ -7,3 +7,9 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+html,
+body {
+  overflow-x: hidden; /* 가로 스크롤 전역 차단 */
+  width: 100%;
+}

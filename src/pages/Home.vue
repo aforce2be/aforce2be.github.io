@@ -6,9 +6,14 @@
     opacity: ${bgOpacity};
     transition: opacity 0.1s linear;
     position: fixed;
-    inset: 0;
-    z-index: -1;
+    top: 0; left: 0; right: 0; bottom: 0;  /* = inset:0 */
+    width: 100%;
+    height: 100%;
     pointer-events: none;
+    z-index: -1;
+    contain: paint;             /* 이 레이어가 밖으로 영향 주지 않도록 */
+    overflow: hidden;           /* 혹시 모를 내부 overflow 차단 */
+    will-change: opacity;       /* 합성 힌트 */
   `"
     ></div>
 
