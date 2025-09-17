@@ -5,12 +5,18 @@
       class="flex flex-col md:grid md:grid-cols-5 md:gap-8 items-start gap-6"
     >
       <!-- 썸네일 -->
-      <div v-if="hasThumb" class="md:col-span-2 order-1 md:order-none w-full">
+      <div
+        v-if="hasThumb"
+        class="md:col-span-2 order-1 md:order-none w-full relative overflow-hidden rounded-2xl shadow-md"
+        @mousemove="handleZoom"
+        @mouseleave="resetZoom"
+      >
         <img
-          v-if="project.thumbnail"
+          ref="thumbImg"
           :src="project.thumbnail"
           alt="project thumbnail"
-          class="w-full aspect-[4/3] md:aspect-[3/2] object-cover rounded-2xl shadow-md"
+          class="w-full h-full object-cover transition-transform duration-300 ease-out"
+          :style="zoomStyle"
           loading="lazy"
         />
       </div>
@@ -49,7 +55,7 @@
           :href="project.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex md:inline-flex items-center justify-center gap-2 mt-2 rounded-lg border border-gray-300/60 px-4 py-2 text-sm sm:text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200"
+          class="inline-flex md:inline-flex items-center justify-center gap-2 mt-2 rounded-lg text-sm sm:text-base text-gray-700 hover:text-gray-400 transition-colors duration-200"
         >
           Go Site
           <svg
@@ -125,6 +131,7 @@
 
 <script setup>
 import { computed } from "vue";
+import { ref } from "vue";
 import { useRoute } from "vue-router";
 import PieChart from "../components/PieChart.vue";
 
@@ -460,6 +467,27 @@ const project = computed(
 );
 
 const hasThumb = computed(() => !!project.value.thumbnail);
+
+const thumbImg = ref(null);
+const zoomStyle = ref({});
+
+function handleZoom(e) {
+  const rect = thumbImg.value.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+  zoomStyle.value = {
+    transform: "scale(1.8)", // 확대 배율
+    transformOrigin: `${x}% ${y}%`,
+  };
+}
+
+function resetZoom() {
+  zoomStyle.value = {
+    transform: "scale(1)",
+    transformOrigin: "center center",
+  };
+}
 </script>
 
 <style scoped>
