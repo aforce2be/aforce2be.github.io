@@ -62,7 +62,7 @@
         <img
           src="../assets/mockup-07.png"
           alt="메가존 목업 이미지"
-          class="hidden md:block absolute -top-8 right-0 w-[140px] lg:w-[140px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+          class="hidden md:block absolute right-[160px] lg:right-[220px] w-[140px] lg:w-[150px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         />
       </li>
       <!-- item -->
