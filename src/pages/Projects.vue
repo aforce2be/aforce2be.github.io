@@ -19,6 +19,60 @@
           <h3
             class="transition-transform duration-300 text-2xl sm:text-3xl md:text-4xl font-semibold md:group-hover:-translate-x-[10px]"
           >
+            코웨이 ITO 통합 운영 프로젝트
+          </h3>
+          <p
+            class="transition-transform duration-300 mt-2 text-sm sm:text-base md:group-hover:-translate-x-[10px]"
+          >
+            코웨이 디지털세일즈, 모바일주문 하이브리드 앱 퍼블리싱
+          </p>
+          <p
+            class="transition-transform duration-300 text-xs sm:text-sm text-gray-300 mt-1.5 flex flex-wrap gap-1.5 md:group-hover:-translate-x-[10px]"
+          >
+            <span>#SCSS</span><span>#CSS3</span><span>#Vuetify</span
+            ><span>#HTML5</span><span>#React</span> <span>#Vue.js</span
+            ><span>#GitHub</span>
+          </p>
+        </div>
+
+        <div class="mt-3 md:mt-0 flex items-center gap-3">
+          <router-link
+            :to="{ name: 'ProjectDetail', params: { id: 7 } }"
+            class="flex items-center gap-2 text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
+          >
+            <span class="text-sm sm:text-base">VIEW DETAILS</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </router-link>
+        </div>
+
+        <!-- mockup: md↑에서만 노출 -->
+        <img
+          src="../assets/mockup-07.png"
+          alt="메가존 목업 이미지"
+          class="hidden md:block absolute -top-8 right-0 w-[140px] lg:w-[140px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        />
+      </li>
+      <!-- item -->
+      <li
+        class="project-item px-6 md:px-12 lg:px-20 transition-all duration-300 ease-in-out flex flex-col md:flex-row md:justify-between md:items-center group relative border-b border-white/30 py-4 md:py-6"
+      >
+        <div class="min-w-0">
+          <h3
+            class="transition-transform duration-300 text-2xl sm:text-3xl md:text-4xl font-semibold md:group-hover:-translate-x-[10px]"
+          >
             메가존 클라우드 PMS 구축 및 운영 프로젝트
           </h3>
           <p
@@ -30,8 +84,7 @@
             class="transition-transform duration-300 text-xs sm:text-sm text-gray-300 mt-1.5 flex flex-wrap gap-1.5 md:group-hover:-translate-x-[10px]"
           >
             <span>#SCSS</span><span>#Mui</span><span>#TypeScript</span
-            ><span>#React</span> <span>#HTML5</span><span>#Bitbucket</span
-            ><span>#React</span>
+            ><span>#React</span> <span>#HTML5</span><span>#Bitbucket</span>
           </p>
         </div>
 
@@ -74,7 +127,7 @@
           <h3
             class="transition-transform duration-300 text-2xl sm:text-3xl md:text-4xl font-semibold md:group-hover:-translate-x-[10px]"
           >
-            우아한형제들 채용 시스템
+            우아한형제들 채용 시스템 <br />(우아한형제들 ITO 개발/운영 프로젝트)
           </h3>
           <p
             class="transition-transform duration-300 mt-2 text-sm sm:text-base md:group-hover:-translate-x-[10px]"
@@ -129,7 +182,7 @@
           <h3
             class="transition-transform duration-300 text-2xl sm:text-3xl md:text-4xl font-semibold md:group-hover:-translate-x-[10px]"
           >
-            배민 아카데미
+            배민 아카데미<br />(우아한형제들 ITO 개발/운영 프로젝트)
           </h3>
           <p
             class="transition-transform duration-300 mt-2 text-sm sm:text-base md:group-hover:-translate-x-[10px]"
