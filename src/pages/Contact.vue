@@ -4,7 +4,6 @@
     class="min-h-screen scroll-mt-14 relative flex flex-col justify-between space-y-6 md:space-y-10 lg:space-y-12 pt-6 pb-8 md:pt-12 md:pb-12 transition-opacity duration-700 bg-white"
     :class="{ 'opacity-100': active, 'opacity-60': !active }"
   >
-    <!-- 헤딩: 왼쪽 → 오른쪽 슬라이드 인 -->
     <h2
       class="font-extrabold transition-all duration-700 ease-in-out leading-tight px-4 sm:px-8 md:px-12 lg:px-20 text-4xl sm:text-5xl md:text-7xl lg:text-8xl"
       :class="
@@ -23,7 +22,6 @@
       THROUGH COMMUNICATION
     </h2>
 
-    <!-- 연락처: 아래 → 위 슬라이드 인 (딜레이) -->
     <div
       class="transition-all duration-700 ease-in-out px-4 sm:px-8 md:px-12 lg:px-20 text-right text-base sm:text-lg"
       :class="
@@ -58,7 +56,6 @@
       </a>
     </div>
 
-    <!-- 소개: 오른쪽 → 왼쪽 슬라이드 인 (더 긴 딜레이) -->
     <p
       class="text-gray-700 leading-relaxed text-left transition-all duration-700 ease-in-out px-4 sm:px-8 md:px-12 lg:px-20 text-sm sm:text-base md:text-xl lg:text-2xl"
       :class="

@@ -5,7 +5,7 @@
     class="min-h-screen scroll-mt-14 flex flex-col justify-between pt-10 md:pt-12 pb-10 md:pb-12 transition-opacity duration-700 relative"
     :class="{ 'opacity-100': active, 'opacity-60': !active }"
   >
-    <!-- h3: 왼쪽 슬라이드 인 -->
+    <!-- h2: 왼쪽 슬라이드 인 -->
     <h2
       :key="'h2-' + animKey"
       class="px-6 md:px-12 lg:px-20 font-extrabold transition-all duration-700 ease-in-out text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight"
@@ -54,7 +54,6 @@
       <div
         ref="track"
         :class="[
-          // 바깥 트랙은 gap 제거(루프 이음매 빈칸 방지)
           'flex absolute whitespace-nowrap',
           animateBanner ? 'animate-wave-loop' : 'initial-position',
         ]"
@@ -97,14 +96,14 @@ const isAnimated = ref(false);
 const isBannerVisible = ref(false);
 const animateBanner = ref(false);
 
-// 섹션이 "완전히" 화면 밖인지
+// 섹션이 완전히 화면 밖인지
 const isFullyOut = ref(true);
-// 재진입 시 애니메이션을 확실히 재발동시키기 위한 키
+// 재진입 시 애니메이션을 확실히 재가동시키기 위한 키
 const animKey = ref(0);
 
-let io = null; // IntersectionObserver | null
-let t1 = null; // number | null
-let t2 = null; // number | null
+let io = null;
+let t1 = null;
+let t2 = null;
 
 onMounted(() => {
   io = new IntersectionObserver(
@@ -126,10 +125,10 @@ onUnmounted(() => {
 
 // 안전한 지연 실행 헬퍼
 function restartAnimations() {
-  // 키 변화로 h2/p를 가볍게 재마운트 → 트랜지션/애니메이션 재발동
+  // 키 변화로 h2/p를 가볍게 재마운트
   animKey.value++;
 
-  // 한 프레임 쉬고 가시화 → 트랜지션 확실히 작동
+  // 한 프레임 쉬고 가시화
   requestAnimationFrame(() => {
     isAnimated.value = true;
     if (t1) clearTimeout(t1);
@@ -139,7 +138,6 @@ function restartAnimations() {
   });
 }
 
-// About.vue
 watch(
   () => active,
   (on) => {
@@ -156,7 +154,7 @@ watch(
     } else {
       // 바로 숨기지 말고 배너만 멈춤
       animateBanner.value = false;
-      // isAnimated/isBannerVisible 은 유지 → 전환 구간에서 텍스트가 남아있음
+      // isAnimated/isBannerVisible 은 유지
     }
   },
   { immediate: true }

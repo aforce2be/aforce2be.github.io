@@ -1,4 +1,3 @@
-<!-- template -->
 <template>
   <div class="custom-cursor">
     <div
@@ -9,7 +8,6 @@
   </div>
 </template>
 
-<!-- script -->
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
@@ -65,7 +63,6 @@ onUnmounted(() => {
 });
 </script>
 
-<!-- style -->
 <style>
 .custom-cursor {
   cursor: none;
@@ -84,7 +81,7 @@ onUnmounted(() => {
   z-index: 9999;
 }
 
-/* 💡 Projects 영역일 때 커서 작게 */
+/* Projects 영역일 때 커서 작게 */
 .cursor-dot.active {
   width: 16px;
   height: 16px;

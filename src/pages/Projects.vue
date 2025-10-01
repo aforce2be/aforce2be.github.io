@@ -11,7 +11,6 @@
     </h2>
 
     <ul class="w-full md:w-11/12 lg:w-4/5 border-t border-white/30 text-white">
-      <!-- item -->
       <li
         class="project-item px-6 md:px-12 lg:px-20 transition-all duration-300 ease-in-out flex flex-col md:flex-row md:justify-between md:items-center group relative border-b border-white/30 py-4 md:py-6"
       >
@@ -58,14 +57,12 @@
           </router-link>
         </div>
 
-        <!-- mockup: md↑에서만 노출 -->
         <img
           src="../assets/mockup-07.png"
           alt="메가존 목업 이미지"
           class="hidden md:block absolute right-[160px] lg:right-[220px] w-[140px] lg:w-[150px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         />
       </li>
-      <!-- item -->
       <li
         class="project-item px-6 md:px-12 lg:px-20 transition-all duration-300 ease-in-out flex flex-col md:flex-row md:justify-between md:items-center group relative border-b border-white/30 py-4 md:py-6"
       >
@@ -111,15 +108,12 @@
           </router-link>
         </div>
 
-        <!-- mockup: md↑에서만 노출 -->
         <img
           src="../assets/mockup-01.png"
           alt="메가존 목업 이미지"
           class="hidden md:block absolute top-1 left-0 w-[220px] lg:w-[250px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         />
       </li>
-
-      <!-- item -->
       <li
         class="project-item px-6 md:px-12 lg:px-20 transition-all duration-300 ease-in-out flex flex-col md:flex-row md:justify-between md:items-center group relative border-b border-white/30 py-4 md:py-6"
       >
@@ -173,8 +167,6 @@
           class="hidden md:block absolute -top-5 right-[180px] lg:right-[220px] w-[180px] lg:w-[200px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         />
       </li>
-
-      <!-- item -->
       <li
         class="project-item px-6 md:px-12 lg:px-20 transition-all duration-300 ease-in-out flex flex-col md:flex-row md:justify-between md:items-center group relative border-b border-white/30 py-4 md:py-6"
       >
@@ -227,8 +219,6 @@
           class="hidden md:block absolute top-1 left-0 w-[220px] lg:w-[250px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         />
       </li>
-
-      <!-- item -->
       <li
         class="project-item px-6 md:px-12 lg:px-20 transition-all duration-300 ease-in-out flex flex-col md:flex-row md:justify-between md:items-center group relative border-b border-white/30 py-4 md:py-6"
       >
@@ -281,8 +271,6 @@
           class="hidden md:block absolute -top-5 right-[160px] lg:right-[220px] w-[140px] lg:w-[150px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         />
       </li>
-
-      <!-- 나머지 2개는 이미지 없음 (필요시 같은 패턴으로 추가) -->
       <li
         class="project-item px-6 md:px-12 lg:px-20 transition-all duration-300 ease-in-out flex flex-col md:flex-row md:justify-between md:items-center group relative border-b border-white/30 py-4 md:py-6"
       >
@@ -330,7 +318,6 @@
           </router-link>
         </div>
       </li>
-
       <li
         class="project-item px-6 md:px-12 lg:px-20 transition-all duration-300 ease-in-out flex flex-col md:flex-row md:justify-between md:items-center group relative border-b border-white/30 py-4 md:py-6"
       >

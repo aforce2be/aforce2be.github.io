@@ -11,9 +11,9 @@
     height: 100%;
     pointer-events: none;
     z-index: -1;
-    contain: paint;             /* 이 레이어가 밖으로 영향 주지 않도록 */
-    overflow: hidden;           /* 혹시 모를 내부 overflow 차단 */
-    will-change: opacity;       /* 합성 힌트 */
+    contain: paint;             
+    overflow: hidden;           
+    will-change: opacity;       
   `"
     ></div>
 
@@ -104,11 +104,11 @@ onMounted(() => {
     const sections = document.querySelectorAll("section");
 
     const ratios = new Map();
-    let current = activeSection.value; // 'about'로 시작
+    let current = activeSection.value; // 'about'컴포넌트에서 시작
     const SWITCH_DELTA = 0.15; // 현재 섹션보다 15% 이상 더 보여야 전환
     const MIN_ACTIVATE = 0.6; // 최소 가시율 60% 이상일 때만 전환
 
-    const thresholds = Array.from({ length: 21 }, (_, i) => i / 20); // 0,0.05..1
+    const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -135,7 +135,7 @@ onMounted(() => {
       {
         root: null,
         threshold: thresholds,
-        // 🔽 CONTACT가 더 일찍 감지되도록: 아래쪽 30%를 뷰포트에서 빼고 관찰
+        // CONTACT가 더 일찍 감지되도록: 아래쪽 30%를 뷰포트에서 빼고 관찰
         rootMargin: "0px 0px -30% 0px",
       }
     );
@@ -161,9 +161,6 @@ onMounted(() => {
         activeSection.value = current;
       }
     });
-
-    // 스크롤 핸들러 등 기존 코드 유지…
-    // ...
   });
 });
 </script>
