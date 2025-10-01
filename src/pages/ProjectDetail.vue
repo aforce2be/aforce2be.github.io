@@ -1,10 +1,8 @@
 <template>
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-    <!-- 헤더 영역: 모바일 단일 컬럼 → md부터 2열 -->
     <div
       class="flex flex-col md:grid md:grid-cols-5 md:gap-8 items-start gap-6"
     >
-      <!-- 썸네일 -->
       <div
         v-if="hasThumb"
         class="md:col-span-2 order-1 md:order-none w-full relative overflow-hidden rounded-2xl shadow-md max-h-[400px] overflow-y-auto"
@@ -21,7 +19,6 @@
         />
       </div>
 
-      <!-- 텍스트 메타 -->
       <div
         :class="[
           'w-full space-y-4',
@@ -38,7 +35,6 @@
           {{ project.duration }}
         </p>
 
-        <!-- 기술스택 칩 -->
         <div class="flex flex-wrap gap-2">
           <span
             v-for="(stack, index) in project.techStack"
@@ -49,7 +45,6 @@
           </span>
         </div>
 
-        <!-- 외부 링크: 모바일에서도 터치하기 쉽게 block 버튼화 -->
         <a
           v-if="project.url"
           :href="project.url"
@@ -76,9 +71,7 @@
       </div>
     </div>
 
-    <!-- 본문 영역 -->
     <div class="mt-10 md:mt-12 space-y-8">
-      <!-- 프로젝트 개요 -->
       <section>
         <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">
           프로젝트 개요
@@ -88,7 +81,6 @@
         </p>
       </section>
 
-      <!-- 성과 -->
       <section>
         <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">성과</h2>
         <ul
@@ -100,7 +92,6 @@
         </ul>
       </section>
 
-      <!-- 참여도 + 차트 -->
       <section>
         <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-3">
           참여도
@@ -120,7 +111,6 @@
           </ul>
         </div>
 
-        <!-- 차트: 반응형 컨테이너 -->
         <div
           class="mx-auto mt-6 md:mt-8 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
         >
@@ -532,7 +522,6 @@ const projects = {
   },
 };
 
-// 안전 가드: id 없거나 잘못된 경우 빈 객체
 const project = computed(
   () =>
     projects[id.value] || {
@@ -558,7 +547,7 @@ function handleZoom(e) {
   const y = ((e.clientY - rect.top) / rect.height) * 100;
 
   zoomStyle.value = {
-    transform: "scale(1.8)", // 확대 배율
+    transform: "scale(1.8)",
     transformOrigin: `${x}% ${y}%`,
   };
 }
@@ -572,7 +561,6 @@ function resetZoom() {
 </script>
 
 <style scoped>
-/* 모션 민감 사용자 배려 (선택) */
 @media (prefers-reduced-motion: reduce) {
   .transition-colors,
   .transition-transform,

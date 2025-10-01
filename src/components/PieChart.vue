@@ -40,7 +40,7 @@ const chartOptions = {
   plugins: {
     legend: {
       display: true,
-      position: "bottom", // top, left, bottom, right
+      position: "bottom",
       labels: {
         color: "#1f2937", // 텍스트 색상 (Tailwind gray-800)
         font: {
