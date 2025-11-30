@@ -444,32 +444,37 @@ const projects = {
       {
         title: "프론트엔드 개발 (20%)",
         percent: 20,
-        content:
+        content: [
           "HTML5, CSS3, Javascript(ES5), JQuery를 활용하여 금융 상품 조회 및 신청 페이지 UI 수정 수행.",
+        ],
       },
       {
         title: "백엔드 개발 (40%)",
         percent: 40,
-        content:
+        content: [
           "Java, Spring Boot를 활용하여 금융 상품 조회 및 신청 기능을 처리하는 백엔드 API 개발 및 성능 최적화. Spring Boot 기반의 비즈니스 로직을 최적화하여 서버 부하 감소 및 확장성 강화.",
+        ],
       },
       {
         title: "데이터베이스 성능 개선 및 최적화 (20%)",
         percent: 20,
-        content:
+        content: [
           "Oracle DB의 쿼리 최적화 및 인덱싱을 적용하여 대량 데이터 조회 성능을 50% 개선. ",
+        ],
       },
       {
         title: "보안 및 웹사이트 안정성 강화 (10%)",
         percent: 10,
-        content:
+        content: [
           "SSL 인증서 갱신 및 XXS 취약성 대응을 수행하여 보안성을 강화하고 시스템 가용성을 90% 이상 유지. 보안 모니터링 및 유지보수 지원을 통해 금융 서비스의 신뢰성 확보.",
+        ],
       },
       {
         title: "협업 및 프로젝트 지원 (10%)",
         percent: 10,
-        content:
+        content: [
           "리뉴얼 프로젝트 일정 관리 및 개발/디자인팀과의 협업을 통해 원활한 커뮤니케이션을 유지. 기한 내 프로젝트 완료를 지원하며 클라이언트 요구사항을 반영하여 최적의 솔루션 제공.",
+        ],
       },
     ],
   },
@@ -497,26 +502,30 @@ const projects = {
       {
         title: "프론트엔드 개발 (30%)",
         percent: 30,
-        content:
+        content: [
           "X_PLATFORM 9.2 및 Javascript(ES5)를 활용하여 의료진과 행정직원이 직관적으로 사용할 수 있는 UI를 개발. 사용자 경험 최적화를 통해 만족도를 70% 이상 향상.",
+        ],
       },
       {
         title: "백엔드 개발 (40%)",
         percent: 40,
-        content:
+        content: [
           "Java 및 Live Framework 5.0을 활용하여 의료 데이터 관리 및 비즈니스 로직 구현. 데이터 검색 및 조회 성능을 60% 이상 최적화. ",
+        ],
       },
       {
         title: "데이터베이스 성능 개선 및 최적화 (20%)",
         percent: 20,
-        content:
+        content: [
           "Oracle DB의 쿼리 튜닝 및 인덱싱을 적용하여 대량 데이터 조회 속도를 50% 개선.",
+        ],
       },
       {
         title: "협업 및 프로젝트 지원 (10%)",
         percent: 10,
-        content:
+        content: [
           "의료진 및 병원 행정팀과 협업하여 사용자의 요구사항을 반영한 기능을 개발. 지속적인 피드백을 받아 UI/UX 개선 및 백엔드 API 기능 최적화.",
+        ],
       },
     ],
   },
